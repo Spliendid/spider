@@ -6,11 +6,12 @@ class HtmlParser(object):
     def _get_new_urls(self, html_cont, soup):
         new_urls = set()
         #/view/123.html
-        links = soup.find_all('a',href = re.compile(r"/view/\d+\.html"))
+        links = soup.find_all('a',href = re.compile(r"/item/?"))
         for link in links:
             new_url = link['href']
+            ##print(new_url)
             #将url拼接补全
-            new_full_url = parse.urljoin(html_cont,new_url)
+            new_full_url = 'http://baike.baidu.com'+new_url
             new_urls.add(new_full_url)
         return new_urls
     #获取所要爬取的信息
@@ -36,6 +37,6 @@ class HtmlParser(object):
         soup = BeautifulSoup(html_cont,'html.parser',from_encoding='utf-8')
         new_urls = self._get_new_urls(html_cont,soup)
         new_data = self._get_new_data(html_cont,soup)
-        print(len(new_urls))
+        ##print(len(new_urls))
         return new_urls,new_data
 

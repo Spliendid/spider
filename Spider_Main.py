@@ -23,12 +23,12 @@ class SpiderMain (object):
             html_cont = self.downloader.download(root_url)
             # 解析urldoc
             new_urls, new_data = self.parser.parse(new_url, html_cont)
-            print(new_urls)
+            ##print(new_urls)
             # 添加新的url地址
             self.urls.add_new_urls(new_urls)
             # 添加输出内容
             self.outputer.collect_data (new_data)
-            if count >= 1000:
+            if count >= 20:
                 break
             count = count + 1
         self.outputer.output_html ()
