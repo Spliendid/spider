@@ -28,10 +28,10 @@ class SpiderMain (object):
             self.urls.add_new_urls(new_urls)
             # 添加输出内容
             self.outputer.collect_data (new_data)
-            if count >= 20:
+            if count >= 5:
                 break
             count = count + 1
-        self.outputer.output_html ()
+        self.outputer.output_txt ()
 
 
 if __name__ == "__main__":

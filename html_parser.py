@@ -23,7 +23,7 @@ class HtmlParser(object):
         #<dd class="lemmaWgt-lemmaTitle-title"><h1>Python</h1>
         title_node = soup.find('dd',class_="lemmaWgt-lemmaTitle-title").find('h1')
         #url-title
-        res_data['title'] = title_node.get_text()
+        res_data['title'] =title_node.get_text()
         #<div class="lemma-summary" label-module="lemmaSummary">
         summary_node = soup.find('div',class_="lemma-summary")
         #url-summary
